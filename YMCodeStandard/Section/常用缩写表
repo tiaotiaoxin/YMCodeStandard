@@ -1,0 +1,17 @@
+//除特殊说明,缩写也需要满足驼峰命名规则
+
+app
+
+info
+
+temp
+
+ID(强制全部大写)
+
+URL(强制全部大写)
+
+max
+
+min
+
+VC(ViewController)
