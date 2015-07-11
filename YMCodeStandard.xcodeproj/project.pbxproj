@@ -13,8 +13,8 @@
 		6243E4C61B40FBD10080FA23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6243E4C51B40FBD10080FA23 /* AppDelegate.m */; };
 		6243E4CA1B40FD230080FA23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6243E4C91B40FD230080FA23 /* LaunchScreen.xib */; };
 		6243E4D01B411A920080FA23 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6243E4CF1B411A920080FA23 /* CustomView.m */; };
-		6244F3CC1B50E80C00C9CB52 /* iOS项目目录.pages in Resources */ = {isa = PBXBuildFile; fileRef = 6244F3CB1B50E80C00C9CB52 /* iOS项目目录.pages */; };
-		6244F3D01B50EC0000C9CB52 /* CocoaPod使用规范.pages in Resources */ = {isa = PBXBuildFile; fileRef = 6244F3CF1B50EC0000C9CB52 /* CocoaPod使用规范.pages */; };
+		6244F3E01B51091200C9CB52 /* CocoaPod Use Standard.pages in Resources */ = {isa = PBXBuildFile; fileRef = 6244F3DE1B51091200C9CB52 /* CocoaPod Use Standard.pages */; };
+		6244F3E11B51091200C9CB52 /* iOS Project Directory.pages in Resources */ = {isa = PBXBuildFile; fileRef = 6244F3DF1B51091200C9CB52 /* iOS Project Directory.pages */; };
 		628275691B4A8B530073E545 /* ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 628275681B4A8B530073E545 /* ViewModel.m */; };
 		6282756B1B4A92FC0073E545 /* libPods-ReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6282756A1B4A92FC0073E545 /* libPods-ReactiveCocoa.a */; };
 		6295D6A51B3034FB006EA285 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6295D6A41B3034FB006EA285 /* main.m */; };
@@ -45,8 +45,8 @@
 		6243E4C91B40FD230080FA23 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		6243E4CE1B411A920080FA23 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
 		6243E4CF1B411A920080FA23 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
-		6244F3CB1B50E80C00C9CB52 /* iOS项目目录.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iOS项目目录.pages"; sourceTree = "<group>"; };
-		6244F3CF1B50EC0000C9CB52 /* CocoaPod使用规范.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CocoaPod使用规范.pages"; sourceTree = "<group>"; };
+		6244F3DE1B51091200C9CB52 /* CocoaPod Use Standard.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CocoaPod Use Standard.pages"; sourceTree = "<group>"; };
+		6244F3DF1B51091200C9CB52 /* iOS Project Directory.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iOS Project Directory.pages"; sourceTree = "<group>"; };
 		628275671B4A8B530073E545 /* ViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
 		628275681B4A8B530073E545 /* ViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewModel.m; sourceTree = "<group>"; };
 		6282756A1B4A92FC0073E545 /* libPods-ReactiveCocoa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ReactiveCocoa.a"; path = "Pods/../build/Debug-iphoneos/libPods-ReactiveCocoa.a"; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		6295D6A11B3034FB006EA285 /* YMCodeStandard */ = {
 			isa = PBXGroup;
 			children = (
-				6244F3CF1B50EC0000C9CB52 /* CocoaPod使用规范.pages */,
-				6244F3CB1B50E80C00C9CB52 /* iOS项目目录.pages */,
+				6244F3DE1B51091200C9CB52 /* CocoaPod Use Standard.pages */,
+				6244F3DF1B51091200C9CB52 /* iOS Project Directory.pages */,
 				6243E4C31B40FBD10080FA23 /* Main */,
 				62D8940A1B390CDE0058EAE7 /* Frameworks */,
 				62D8940B1B390CDE0058EAE7 /* General */,
@@ -347,9 +347,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6244F3E11B51091200C9CB52 /* iOS Project Directory.pages in Resources */,
+				6244F3E01B51091200C9CB52 /* CocoaPod Use Standard.pages in Resources */,
 				6204938B1B4E165900AECD0E /* Images.xcassets in Resources */,
-				6244F3CC1B50E80C00C9CB52 /* iOS项目目录.pages in Resources */,
-				6244F3D01B50EC0000C9CB52 /* CocoaPod使用规范.pages in Resources */,
 				6243E4CA1B40FD230080FA23 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
