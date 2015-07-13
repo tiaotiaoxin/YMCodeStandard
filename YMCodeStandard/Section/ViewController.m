@@ -64,7 +64,7 @@
 		NSLog(@"customSubView.frame after = %@", NSStringFromCGRect(self.customSubView.frame));
 }
 
-#pragma mark - setup ViewModel Observer
+#pragma mark - viewModel observer
 
 - (void)setupViewModelObserver
 {
