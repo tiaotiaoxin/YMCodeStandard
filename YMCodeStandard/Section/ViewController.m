@@ -57,6 +57,11 @@
 				make.top.equalTo(self.view).offset(60);
 				make.height.equalTo(@180);
 		}];
+		
+		//设置完Autolayout布局后,相应的View的Frame还是CGRectZero,需要调用layoutIfNeeded后才能获取正确的Frame
+		NSLog(@"customSubView.frame before = %@", NSStringFromCGRect(self.customSubView.frame));
+		[self.customSubView layoutIfNeeded];
+		NSLog(@"customSubView.frame after = %@", NSStringFromCGRect(self.customSubView.frame));
 }
 
 #pragma mark - setup ViewModel Observer
