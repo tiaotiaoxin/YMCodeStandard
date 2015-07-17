@@ -17,6 +17,8 @@ NSString * const kAFURLResponseSerializationErrorDomain = @"test";
 
 static NSString *kAppId;
 
+const static NSInteger kVerticalTimeLabelTagOffset = 100;
+
 @interface VariableAndConstant()
 
 //枚举规范
