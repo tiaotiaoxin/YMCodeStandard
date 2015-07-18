@@ -71,8 +71,6 @@
 {
 		if (_imageView == nil) {
 				_imageView = [[UIImageView alloc] init];
-				
-				//在有玉米框架的情况下 [UIImage imageNamed:@"test"]替换成kYMImageNamed(@"test")
 				_imageView.image = [UIImage imageNamed:@"test"];
 		}
 		
