@@ -73,21 +73,14 @@
 //这里不仅可以描述ViewModel暴露的参数改变,也可以描述UI控件的响应
 - (void)setupViewModel
 {
-	@weakify(self);
-	
-	[[self.subviewForButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-	 subscribeNext:  ^(id value) {
-		 @strongify(self);
-		 [self.viewModel requestData];
-	 }];
-	
 	RAC(self.customSubView, title) = RACObserve(self.viewModel, title);
 	
+	@weakify(self);
 	[RACObserve(self.viewModel, content) subscribeNext:^(NSString *content) {
+		@strongify(self);
 		NSLog(@"content is %@",content);
 	}];
 }
-
 
 #pragma mark - delegate
 
@@ -98,6 +91,11 @@
 #pragma mark - event response
 
 //由用户点击触发的事件
+
+- (void)subviewForButtonAction:(UIButton *)button
+{
+	[self.viewModel requestData];
+}
 
 #pragma mark - public methods
 
@@ -128,6 +126,9 @@
 		_subviewForButton.backgroundColor = [UIColor blueColor];
 		[_subviewForButton setTitle:@"发送请求"
 						   forState:UIControlStateNormal];
+		[_subviewForButton addTarget:self
+							  action:@selector(subviewForButtonAction:)
+					forControlEvents:UIControlEventTouchUpInside];
 	}
 	
 	return _subviewForButton;
