@@ -6,19 +6,17 @@
 //  Copyright (c) 2015 cornapp. All rights reserved.
 //
 
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "Masonry.h"
-
-#import "RACSignal.h"
-#import "NSObject+RACPropertySubscribing.h"
-#import "RACEXTScope.h"
 
 #import "ViewController.h"
 #import "CustomView.h"
 #import "ViewModel.h"
 
-@interface ViewController ()
+@interface ViewController()
 
 @property (nonatomic, strong) CustomView *customSubView;
+@property (nonatomic, strong) UIButton *subviewForButton;
 @property (nonatomic, strong) ViewModel *viewModel;
 
 @end
@@ -36,15 +34,14 @@
 	[super viewDidLoad];
 	
 	//self.view的处理可以放这里
-	self.view.backgroundColor = [UIColor whiteColor];
+	self.view.backgroundColor = [UIColor blackColor];
 	
 	//此方法只做addSubview,子视图在get方法进行初始化
+	[self.view addSubview:self.subviewForButton];
 	[self.view addSubview:self.customSubView];
 	
 	//设置ViewModel监听
-	[self setupViewModelObserver];
-	
-	[self.viewModel requestData];
+	[self setupViewModel];
 }
 
 - (void)viewWillLayoutSubviews
@@ -52,9 +49,15 @@
 	[super viewWillLayoutSubviews];
 	
 	//此方法对子视图进行Autolayout布局
-	[self.customSubView mas_makeConstraints:^(MASConstraintMaker *make) {
+	[self.subviewForButton mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.right.width.equalTo(self.view);
 		make.top.equalTo(self.view).offset(60);
+		make.height.equalTo(@30);
+	}];
+	
+	[self.customSubView mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.left.right.width.equalTo(self.view);
+		make.top.equalTo(self.view).offset(160);
 		make.height.equalTo(@180);
 	}];
 	
@@ -64,14 +67,23 @@
 	NSLog(@"customSubView.frame after = %@", NSStringFromCGRect(self.customSubView.frame));
 }
 
-#pragma mark - viewModel observer
+#pragma mark - viewModel
 
-- (void)setupViewModelObserver
+//这里不仅可以描述ViewModel暴露的参数改变,也可以描述UI控件的响应
+- (void)setupViewModel
 {
 	@weakify(self);
-	[RACObserve(self.viewModel, title) subscribeNext:^(NSString *title) {
-		@strongify(self);
-		self.customSubView.title = title;
+	
+	[[self.subviewForButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+	 subscribeNext:  ^(id value) {
+		 @strongify(self);
+		 [self.viewModel requestData];
+	 }];
+	
+	RAC(self.customSubView, title) = RACObserve(self.viewModel, title);
+	
+	[RACObserve(self.viewModel, content) subscribeNext:^(NSString *content) {
+		NSLog(@"content is %@",content);
 	}];
 }
 
@@ -106,6 +118,18 @@
 	}
 	
 	return _customSubView;
+}
+
+- (UIButton *)subviewForButton
+{
+	if (_subviewForButton == nil) {
+		_subviewForButton = [[UIButton alloc] init];
+		_subviewForButton.backgroundColor = [UIColor blueColor];
+		[_subviewForButton setTitle:@"发送请求"
+						   forState:UIControlStateNormal];
+	}
+	
+	return _subviewForButton;
 }
 
 - (ViewModel *)viewModel

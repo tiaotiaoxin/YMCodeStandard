@@ -10,7 +10,8 @@
 
 @interface ViewModel : NSObject
 
-@property (readonly, nonatomic, strong) NSString *title;
+@property (readonly, nonatomic, copy) NSString *title;
+@property (readonly, nonatomic, copy) NSString *content;
 
 - (void)requestData;
 

@@ -8,6 +8,14 @@
 
 #import "ViewModel.h"
 
+@interface ViewModel()
+
+//h文件设置成readonly的属性,可以m文件中设置成readwrite,便于此属性在m文件内部使用
+@property (readwrite, nonatomic, copy) NSString *title;
+@property (readwrite, nonatomic, copy) NSString *content;
+
+@end
+
 @implementation ViewModel
 
 - (void)requestData
@@ -19,15 +27,9 @@
 	dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
 				   {
 					   __strong __typeof(weakSelf)strongSelf = weakSelf;
-					   [strongSelf setTitle:@"测试标题"];
+					   strongSelf.title = @"请求数据返回标题";
+					   strongSelf.content = @"请求数据返回内容";
 				   });
-}
-
-#pragma mark - getters and setters
-
-- (void)setTitle:(NSString *)title
-{
-	_title = title;
 }
 
 @end
