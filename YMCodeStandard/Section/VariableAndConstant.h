@@ -13,7 +13,7 @@
 
 @interface VariableAndConstant : NSObject
 {
-		//NSDictionary *_userInfo; //只要设置@property,这种写法不再使用
+	//NSDictionary *_userInfo; //只要设置@property,这种写法不再使用
 }
 
 //所有属性都必须使用@property

@@ -27,10 +27,10 @@
  *  @return 返回值说明
  */
 - (NSInteger)compareWithMessage:(NSString *)msg
-											 interval:(float)theInterval;//冒号要对齐,相应方法调用也遵守此规则
+					   interval:(float)theInterval;//冒号要对齐,相应方法调用也遵守此规则
 
 - (void)show:(float)theInterval
-		verylongKeyword:(NSString *)keyword
-		evenLongerKeyword:(float)theInterval;//当第一个关键字比其它的短时,保证下一行至少一个Tab的缩进,相应方法调用也遵守此规则
+verylongKeyword:(NSString *)keyword
+evenLongerKeyword:(float)theInterval;//当第一个关键字比其它的短时,下一行不缩进,相应方法调用也遵守此规则
 
 @end

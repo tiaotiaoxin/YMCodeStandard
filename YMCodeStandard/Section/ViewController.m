@@ -33,46 +33,46 @@
 
 - (void)viewDidLoad
 {
-		[super viewDidLoad];
-    
-		//self.view的处理可以放这里
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-		//此方法只做addSubview,子视图的初始化
-		[self.view addSubview:self.customSubView];
-		
-		//设置ViewModel监听
-		[self setupViewModelObserver];
-		
-		[self.viewModel requestData];
+	[super viewDidLoad];
+	
+	//self.view的处理可以放这里
+	self.view.backgroundColor = [UIColor whiteColor];
+	
+	//此方法只做addSubview,子视图在get方法进行初始化
+	[self.view addSubview:self.customSubView];
+	
+	//设置ViewModel监听
+	[self setupViewModelObserver];
+	
+	[self.viewModel requestData];
 }
 
 - (void)viewWillLayoutSubviews
 {
-		[super viewWillLayoutSubviews];
-		
-		//此方法对子视图进行Autolayout布局
-		[self.customSubView mas_makeConstraints:^(MASConstraintMaker *make) {
-				make.left.right.width.equalTo(self.view);
-				make.top.equalTo(self.view).offset(60);
-				make.height.equalTo(@180);
-		}];
-		
-		//设置完Autolayout布局后,相应的View的Frame还是CGRectZero,需要调用layoutIfNeeded后才能获取正确的Frame
-		NSLog(@"customSubView.frame before = %@", NSStringFromCGRect(self.customSubView.frame));
-		[self.customSubView layoutIfNeeded];
-		NSLog(@"customSubView.frame after = %@", NSStringFromCGRect(self.customSubView.frame));
+	[super viewWillLayoutSubviews];
+	
+	//此方法对子视图进行Autolayout布局
+	[self.customSubView mas_makeConstraints:^(MASConstraintMaker *make) {
+		make.left.right.width.equalTo(self.view);
+		make.top.equalTo(self.view).offset(60);
+		make.height.equalTo(@180);
+	}];
+	
+	//设置完Autolayout布局后,相应的View的Frame还是CGRectZero,需要调用layoutIfNeeded后才能获取正确的Frame
+	NSLog(@"customSubView.frame before = %@", NSStringFromCGRect(self.customSubView.frame));
+	[self.customSubView layoutIfNeeded];
+	NSLog(@"customSubView.frame after = %@", NSStringFromCGRect(self.customSubView.frame));
 }
 
 #pragma mark - viewModel observer
 
 - (void)setupViewModelObserver
 {
-		@weakify(self);
-		[RACObserve(self.viewModel, title) subscribeNext:^(NSString *title) {
-				@strongify(self);
-				self.customSubView.title = title;
-		}];
+	@weakify(self);
+	[RACObserve(self.viewModel, title) subscribeNext:^(NSString *title) {
+		@strongify(self);
+		self.customSubView.title = title;
+	}];
 }
 
 
@@ -100,21 +100,21 @@
 
 - (CustomView *)customSubView
 {
-		if (_customSubView == nil) {
-				_customSubView = [[CustomView alloc] init];
-				_customSubView.backgroundColor = [UIColor redColor];
-		}
-		
-		return _customSubView;
+	if (_customSubView == nil) {
+		_customSubView = [[CustomView alloc] init];
+		_customSubView.backgroundColor = [UIColor redColor];
+	}
+	
+	return _customSubView;
 }
 
 - (ViewModel *)viewModel
 {
-		if (_viewModel == nil) {
-				_viewModel = [[ViewModel alloc] init];
-		}
-		
-		return _viewModel;
+	if (_viewModel == nil) {
+		_viewModel = [[ViewModel alloc] init];
+	}
+	
+	return _viewModel;
 }
 
 @end

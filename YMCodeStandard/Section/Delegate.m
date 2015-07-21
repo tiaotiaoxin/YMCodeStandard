@@ -14,7 +14,7 @@ NSURLConnectionDelegate,
 NSCopying
 >
 
-//如果只有单个时候
+//如果只有单个时候Delegate
 //@interface Delegate() <NSURLConnectionDelegate>
 
 @end
@@ -23,9 +23,9 @@ NSCopying
 
 - (void)targetDelegate
 {
-		if (_delegate && [_delegate respondsToSelector:@selector(codeShouldCopy:)]) {
-				[_delegate codeShouldCopy:self];
-		}
+	if (_delegate && [_delegate respondsToSelector:@selector(codeShouldCopy:)]) {
+		[_delegate codeShouldCopy:self];
+	}
 }
 
 @end

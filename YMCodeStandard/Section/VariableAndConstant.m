@@ -23,8 +23,8 @@ const static NSInteger kVerticalTimeLabelTagOffset = 100;
 
 //枚举规范
 typedef enum {
-		AppCellForNormalStyle = 0,
-		AppCellForRanklStyle = 1,
+	AppCellForNormalStyle = 0,
+	AppCellForRanklStyle = 1,
 } AppCellStyle;
 
 //宏:使用全大写字母并且用下划线分割单词(编译器定义的宏名首尾都有双下划线。如:__MACH__)
@@ -38,14 +38,14 @@ typedef enum {
 
 - (void)useBOOL
 {
-		//BOOL类型:不要直接将BOOL值与YES比较
-		BOOL hided = YES;
-		
-		if (hided) {
-		}
-		
-		if (hided == NO) {
-		}
+	//BOOL类型:不要直接将BOOL值与YES比较
+	BOOL hided = YES;
+	
+	if (hided) {
+	}
+	
+	if (hided == NO) {
+	}
 }
 
 @end
