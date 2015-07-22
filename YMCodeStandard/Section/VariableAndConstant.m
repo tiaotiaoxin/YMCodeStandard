@@ -11,13 +11,11 @@
 // 声明顺序 常量、静态局部变量 / 枚举 / 宏
 
 //常量、静态局部变量使用规范,以k字母开头,使用模板如下
-static NSString * const kAFNetworkingLockName = @"test";
+const static NSString *kAFNetworkingLockName = @"test";
 
-NSString * const kAFURLResponseSerializationErrorDomain = @"test";
+const NSString *kAFURLResponseSerializationErrorDomain = @"test";
 
 static NSString *kAppId;
-
-const static NSInteger kVerticalTimeLabelTagOffset = 100;
 
 @interface VariableAndConstant()
 
