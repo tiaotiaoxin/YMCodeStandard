@@ -20,16 +20,16 @@
 
 - (void)requestData
 {
-	__weak __typeof(self)weakSelf = self;
-	
-	//网络请求
-	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
-	dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
-				   {
-					   __strong __typeof(weakSelf)strongSelf = weakSelf;
-					   strongSelf.title = @"请求数据返回标题";
-					   strongSelf.content = @"请求数据返回内容";
-				   });
+    __weak __typeof(self)weakSelf = self;
+    
+    //网络请求
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                   {
+                       __strong __typeof(weakSelf)strongSelf = weakSelf;
+                       strongSelf.title = @"请求数据返回标题";
+                       strongSelf.content = @"请求数据返回内容";
+                   });
 }
 
 @end
